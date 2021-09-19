@@ -6,24 +6,17 @@
 
         <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
         <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     </head>
     <body>
         <h1>Hello, Mr.React</h1>
         <div id="app-root"></div>
-        <script>
-            function Button() {
-                return React.createElement(
-                    'button',
-                    null,
-                    'Click Me',
-                )
+        <script type="text/babel">
+            function Button(props) {
+                return <button style = {{color: props.color}}>{props.children} + 'Click Me'</button>;
             }
             function App() {
-                return React.createElement(
-                    'h2',
-                    null,
-                    'Render from app',
-                );
+                return <Button color = 'red'>Render from app</Button>
             }
 
             ReactDOM.render(
