@@ -12,15 +12,27 @@
         <h1>Hello, Mr.React</h1>
         <div id="app-root"></div>
         <script type="text/babel">
+
             function Button(props) {
-                return <button style = {{color: props.color}}>{props.children} + 'Click Me'</button>;
+                const content = props.children || 'Fk you'
+
+                const handlClick = () => {
+                    console.log('Click!');
+                }
+
+                return <button style = {{color: props.color}} onClick = {handlClick}>{content}</button>;
             }
             function App() {
-                return <Button color = 'red'>Render from app</Button>
+                return (
+                    <div>
+                        <Button color = 'red'>Render from app</Button>
+                        <Button color = 'blue'/>
+                    </div>
+                )
             }
 
             ReactDOM.render(
-                React.createElement(App),
+                <App />,
                 document.getElementById('app-root'),
             );
         </script>
